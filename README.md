@@ -21,3 +21,19 @@ pnpm i
 ```
 pnpm run dev
 ```
+
+- Installing OpenSSH (Windows)
+```
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+```
+
+- Connecting to the ec2-db-connect1 instance
+#### Place the EC2-RDS-Connect.pem file in the directory you're in
+```
+ssh -i "EC2-RDS-Connect.pem" ec2-user@ec2-15-206-149-39.ap-south-1.compute.amazonaws.com
+```
+
+- Connecting to the PostgreSQL server via Amazon EC2 Instance
+```
+psql --host=bayava-lms.clykoow2ix8x.ap-south-1.rds.amazonaws.com --port=5432 --username=postgres --password --dbname= 
+```
