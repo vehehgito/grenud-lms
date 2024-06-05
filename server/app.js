@@ -13,15 +13,18 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: false}))
 app.use(cors(corsOption));
 
-// Route Imports
-// const user = require("./routes/userRoute");
+
 
 // Middleware Imports
 // const errorMiddleware = require("./middleware/error");
 
 
+// Route Imports
+import userRouter from './src/routes/userRoutes.js';
+
+
 // Mount Routes
-// app.use("/api/v1", user);
+app.use("/api/v1", userRouter);
 
 // Middleware for Errors
 // app.use(errorMiddleware);
