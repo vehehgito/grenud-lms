@@ -18,6 +18,15 @@ app.use(cors(corsOption));
 // Middleware Imports
 // const errorMiddleware = require("./middleware/error");
 
+// Database Connection
+import pool from "./config/database.js";
+
+pool.connect()
+.then(() => {
+    console.log("Database connected successfully");
+})
+
+
 
 // Route Imports
 import userRouter from './src/routes/userRoutes.js';
