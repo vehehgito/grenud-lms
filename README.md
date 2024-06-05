@@ -42,6 +42,12 @@ Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 ssh -i "EC2-RDS-Connect.pem" ec2-user@ec2-15-206-149-39.ap-south-1.compute.amazonaws.com
 ```
 
+Run this command, if necessary, to ensure your key is not publicly viewable.
+
+```bash
+chmod 400 "EC2-RDS-Connect.pem"
+```
+
 - Connecting to the PostgreSQL server via Amazon EC2 Instance
 
 ```bash
