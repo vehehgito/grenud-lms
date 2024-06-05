@@ -1,39 +1,33 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+dotenv.config({path: "./config/config.env"});
 
-dotenv.config(
-    {
-        path: './config/config.env'
-    }
-);
-const app = express();
-
-const server_port = process.env.PORT || 4000;
-const client_url = process.env.CLIENT_URL;
-
-// MIDDLEWARE
-const corsOptions = {
-    credentials: true,
-    origin: client_url,
-};
-
-app.use(cors(corsOptions));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(corsOptions));
+import app from './app.js'
 
 
+// const connectDatabase = require("./config/database");
 
-// Test Msg
-app.get("/", (req, res) => {
-    res.status(200).json({msg: "Hello World"});
-});
+// Handle Uncaught Exceptions
+process.on("uncaughtException", err => {
+    console.log(`Error: ${err.message}`);
+    console.log("Shutting down the server due to Uncaught Exception");
+    process.exit(1);
+})
 
 
-// Start Server
-app.listen(server_port, () => {
-    console.log(`Server is running on port http://localhost:${server_port}/`);
-});
+// Start the server
+const port = process.env.PORT || 5000;
+
+// Connect to database
+// connectDatabase();
+
+const server = app.listen(port, () => {
+    console.log(`server started at http://127.0.0.1:${port}`);
+})
+
+process.on("unhandledRejection", err => {
+    console.log(`Error: ${err.message}`);
+    console.log("Shutting down the server due to Unhandled Promise Rejection");
+    server.close(() => {
+        process.exit(1);
+    });
+})
