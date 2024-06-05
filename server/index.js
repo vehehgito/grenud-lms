@@ -20,6 +20,14 @@ const port = process.env.PORT || 5000;
 // Connect to database
 // connectDatabase();
 
+
+// Initial Routes
+
+app.get("/", (req, res) => {
+    res.send("API is running");
+})
+
+
 const server = app.listen(port, () => {
     console.log(`server started at http://127.0.0.1:${port}`);
 })
