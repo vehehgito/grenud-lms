@@ -153,3 +153,6 @@ tmp/
 temp/
 *.tmp
 *.temp
+
+# Environment Variables
+*.pem
