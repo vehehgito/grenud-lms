@@ -3,7 +3,7 @@ import express from 'express';
 import { getUserDetails } from '../controllers/userController.js';
 
 
-const userRouter = new express.Router();
+const userRouter = express.Router();
 
 
 // User CRUD
