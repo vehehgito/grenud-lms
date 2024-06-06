@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config({path: "./config/config.env"});
 
-import app from './app.js'
+import app from './app.js';
 
 
 // const connectDatabase = require("./config/database");
@@ -15,7 +15,7 @@ process.on("uncaughtException", err => {
 
 
 // Start the server
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 // Connect to database
 // connectDatabase();
@@ -24,7 +24,7 @@ const port = process.env.PORT || 5000;
 // Initial Routes
 
 app.get("/", (req, res) => {
-    res.send("API is running");
+    res.status(201).send({msg: "Success", data: "API is running"});
 })
 
 
@@ -32,7 +32,7 @@ const server = app.listen(port, () => {
     console.log(`server started at http://127.0.0.1:${port}`);
 })
 
-process.on("unhandledRejection", err => {
+process.on("unhandledRejection", (err: any) => {
     console.log(`Error: ${err.message}`);
     console.log("Shutting down the server due to Unhandled Promise Rejection");
     server.close(() => {
