@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
@@ -19,12 +19,12 @@ app.use(cors(corsOption));
 // const errorMiddleware = require("./middleware/error");
 
 // Database Connection
-import pool from "./config/database.js";
+// import pool from "./config/database.js";
 
-pool.connect()
-.then(() => {
-    console.log("Database connected successfully");
-})
+// pool.connect()
+// .then(() => {
+//     console.log("Database connected successfully");
+// })
 
 
 
