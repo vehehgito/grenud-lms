@@ -39,3 +39,16 @@ process.on("unhandledRejection", (err: any) => {
         process.exit(1);
     });
 })
+
+import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
+import { users } from "./config/db/schema.js";
+
+const pool = new Pool({
+  connectionString: process.env.DB_URL,
+});
+
+const db = drizzle(pool);
+// userid : uuid, name : varchar(255), email : varchar(255), passwordhash varchar(255), user_role varchar(255), created_on timestamp, courses_enrolled : ??
+await db.insert(users).values({ name: "John Doe", email: "johndoe@gmail.com", password_hash: "password", user_role: "student" });

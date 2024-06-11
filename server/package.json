@@ -14,12 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-rds-data": "^3.592.0",
-    "@aws-sdk/credential-providers": "^3.592.0",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
-    "@types/pg": "^8.11.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
@@ -33,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
+    "@types/pg": "^8.11.6",
     "drizzle-kit": "^0.22.6",
     "typescript": "^5.4.5"
   }
